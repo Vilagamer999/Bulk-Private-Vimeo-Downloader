@@ -39,7 +39,7 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
 
 3. Modify the script:
 
-   - VERY IMPORTANT! (otherwise it won't work): Update any values that are displayed `<LIKE THIS>` and contain a short message
+   - VERY IMPORTANT! (otherwise it won't work): update the `"referer":` parameter after `yt_dlp_options = {` like so `"referer": "https://www.link-to-online-course-website.com",`
 
 4. Run the script:
 
