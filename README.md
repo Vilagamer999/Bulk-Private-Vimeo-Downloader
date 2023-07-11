@@ -9,7 +9,7 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/vimeo-downloader.git
+   git clone https://github.com/Vilagamer999/Bulk-Private-Vimeo-Downloader.git
    ```
 
 2. Install the required dependencies:
