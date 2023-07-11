@@ -39,7 +39,7 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
 
 3. Modify the script:
 
-   - VERY IMPORTANT! (otherwise it won't work): Update any values that are displayed '<LIKE THIS>' and contain a short message
+   - VERY IMPORTANT! (otherwise it won't work): Update any values that are displayed `<LIKE THIS>` and contain a short message
 
 4. Run the script:
 
