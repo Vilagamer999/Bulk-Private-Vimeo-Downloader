@@ -3,7 +3,7 @@ import tempfile
 import yt_dlp
 
 # Path to the file containing video URLs
-file_path = os.path.join(os.path.dirname(__file__), "vimeo-links.txt")
+file_path = os.path.join(os.path.dirname(__file__), "vimeo_links.txt")
 
 # Output folder for the downloaded MP4 files
 output_folder = os.path.join(os.path.dirname(__file__), "output_videos")
