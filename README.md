@@ -47,5 +47,6 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
    python vimeo_downloader.py
    ```
 
-###
+##
+
 If you encounter any issues or have suggestions for improvement, please feel free to create an issue or submit a pull request.
