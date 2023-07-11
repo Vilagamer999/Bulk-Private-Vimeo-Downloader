@@ -9,6 +9,9 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
 1. Clone the repository:
 
    ```shell
+   cd ~/
+   mkdir vimeo_downloader
+   cd vimeo_downloader
    git clone https://github.com/Vilagamer999/Bulk-Private-Vimeo-Downloader
    ```
 
