@@ -17,7 +17,7 @@ yt_dlp_options = {
     "referer": "<CHANGE YOUR REFERER HERE>",
     "external_downloader": "aria2c",
     "external_downloader_args": "-x 16 -s 16 -k 5M --max-concurrent-downloads=16",
-    "outtmpl": os.path.join(output_folder, "%(playlist_index)s - %(title)s (%(format_id)s).%(ext)s"),
+    "outtmpl": os.path.join(output_folder, "%(title)s (%(format_id)s).%(ext)s"),
     "clean_infojson": False,
     "nooverwrites": True,
     "ignoreerrors": True,
