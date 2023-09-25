@@ -2,7 +2,7 @@ import os
 import tempfile
 import yt_dlp
 
-# Path to the file containing video URLs
+# Path to the file containing video URLs and passwords (if required)
 file_path = os.path.join(os.path.dirname(__file__), "vimeo_links.txt")
 
 # Output folder for the downloaded MP4 files
@@ -21,25 +21,35 @@ yt_dlp_options = {
     "clean_infojson": False,
     "nooverwrites": True,
     "ignoreerrors": True,
-    "tempdir": tempfile.gettempdir()
+    "tempdir": tempfile.gettempdir(),
 }
 
 # Create the output folder if it doesn't exist
 os.makedirs(output_folder, exist_ok=True)
 
-# Read video URLs from the file
+# Read video URLs and optional passwords from the file
 with open(file_path, "r") as file:
-    video_urls = [line.strip() for line in file]
+    video_lines = [line.strip() for line in file]
 
-# Process the video URLs in batches
-for i in range(0, len(video_urls), batch_size):
-    batch_urls = video_urls[i:i + batch_size]
+# Process the video URLs and passwords in batches
+for i in range(0, len(video_lines), batch_size):
+    batch_lines = video_lines[i:i + batch_size]
 
     # Initialize the yt-dlp downloader
     ydl = yt_dlp.YoutubeDL(yt_dlp_options)
 
-    # Download the videos for each URL in the batch
-    for url in batch_urls:
+    # Download the videos for each URL and password in the batch
+    for line in batch_lines:
+        parts = line.split("::")  # Separating URL and password if provided
+        url = parts[0]
+        password = parts[1] if len(parts) > 1 else None
+
+        # Include the video password if provided
+        if password:
+            ydl.params['video_password'] = password
+        else:
+            ydl.params.pop('video_password', None)
+
         ydl.download([url])
 
 # Delete leftover files
