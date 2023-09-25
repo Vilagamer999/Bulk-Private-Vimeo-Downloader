@@ -41,6 +41,7 @@ It reads any plain text file containing Vimeo video links and bulk downloads the
 3. Modify the script:
 
    - VERY IMPORTANT! (otherwise it won't work): update the `"referer":` parameter after `yt_dlp_options = {` like so `"referer": "https://www.link-to-online-course-website.com",`
+   - (Optional) you can now also download password protected videos! simply add `"::"` after each video link followed by the password in `"vimeo_links.txt"` like so `"https://vimeo.com/12345678::PASSWORD",`
 
 4. Run the script:
 
