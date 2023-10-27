@@ -14,7 +14,7 @@ batch_size = 5
 # yt-dlp options
 yt_dlp_options = {
     "format": "bestvideo+bestaudio",
-    "referer": "https://discord.com",
+    "referer": "CHANGE YOUR REFERER HERE",
     "external_downloader": "aria2c",
     "external_downloader_args": ["-x", "16", "-s", "16", "-k", "5M", "--max-concurrent-downloads=16"],
     "outtmpl": os.path.join(output_folder, "%(title)s (%(format_id)s).%(ext)s"),
