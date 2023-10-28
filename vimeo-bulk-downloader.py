@@ -14,13 +14,13 @@ batch_size = 5
 # yt-dlp options
 yt_dlp_options = {
     "format": "bestvideo+bestaudio",
-    "referer": "<CHANGE YOUR REFERER HERE>",
+    "referer": "CHANGE YOUR REFERER HERE",
     "external_downloader": "aria2c",
-    "external_downloader_args": "-x 16 -s 16 -k 5M --max-concurrent-downloads=16",
+    "external_downloader_args": ["-x", "16", "-s", "16", "-k", "5M", "--max-concurrent-downloads=16"],
     "outtmpl": os.path.join(output_folder, "%(title)s (%(format_id)s).%(ext)s"),
     "clean_infojson": False,
     "nooverwrites": True,
-    "ignoreerrors": True,
+    "verbose": True,
     "tempdir": tempfile.gettempdir(),
 }
 
@@ -46,11 +46,14 @@ for i in range(0, len(video_lines), batch_size):
 
         # Include the video password if provided
         if password:
-            ydl.params['video_password'] = password
+            ydl.params['videopassword'] = password
         else:
-            ydl.params.pop('video_password', None)
+            ydl.params['videopassword'] = None
 
-        ydl.download([url])
+        try:
+            ydl.download([url])
+        except Exception as e:
+            print(f"Error downloading {url}: {e}")
 
 # Delete leftover files
 for file_name in os.listdir(output_folder):
